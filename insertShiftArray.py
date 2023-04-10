@@ -1,4 +1,10 @@
 def insertShiftArray(arr, value):
+    '''
+    This function responsible for inserting an element to array using append method
+    arr: it takes array and the value to be inserted
+    Return: it returns an array with the new value
+
+    '''
     length = len(arr)
     midlle =  length // 2
 
@@ -26,8 +32,7 @@ def insertShiftArray(arr, value):
     
    
 
-insertShiftArray([1,2,3,4],5)
-insertShiftArray([1,2,3,4,5],6)
+
 
 
 ####Stretch Goal####
