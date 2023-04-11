@@ -1,5 +1,5 @@
 import pytest
-from insertShiftArray import insertShiftArray
+from arrayinsertshift.insertShiftArray import insertShiftArray
 
 def test_odd_leng():
      actual = insertShiftArray([1,2,3,4,5],6)
@@ -10,3 +10,4 @@ def test_even_leng():
      actual = insertShiftArray([1,2,3,4],5)
      expected = [1, 2, 5, 3, 4]
      assert actual == expected
+
