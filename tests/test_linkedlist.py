@@ -1,6 +1,7 @@
 import pytest
 from linkedlist.linkedlist import LinkedList
-from linkedlist.node import Node
+from linkedlist.node1 import Node
+
 def test_empty_ll():
     ll = LinkedList()
     expected = "Empty LinkeList"
