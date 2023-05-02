@@ -1,7 +1,5 @@
-# Challenge Title
-<<<<<<< HEAD
+## Title
 CC8: linked_list_zip
-
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
 [linked_list_zip](./ziplist.jpg)
@@ -20,18 +18,4 @@ Return the head of the new linked list.
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
 To run the code you have to pass two .
-=======
-CC8: array-insert-shift
 
-## Whiteboard Process
-<!-- Embedded whiteboard image -->
-[Whiteboard2]()
-
-## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-space coplexity O(1)
-
-## Solution
-<!-- Show how to run your code, and examples of it in action -->
-To run the code you have to pass two lists and vlue to be inserted .
->>>>>>> 6da4c99c1eb822c8f67952d8efd733a85fd6f366
