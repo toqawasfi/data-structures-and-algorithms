@@ -44,6 +44,14 @@ class LinkedList:
 
     @staticmethod
     def zip_lists(l1, l2):
+        '''
+        zip_lists a Method responsible for merging two linked lists alternativly 
+        args:
+        2 linked lists
+        returns:
+        zipped linked list
+
+        '''
         if not l1.head:
             return l2
         if not l2.head:
@@ -63,16 +71,6 @@ class LinkedList:
             current.next = l2.head
         result.head = result.head.next
         return result
-
-l1 = LinkedList()
-l1.insert(3)
-l1.insert(2)
-l1.insert(1)
-print(l1)
-l2 = LinkedList()
-l2.insert(6)
-l2.insert(5)
-l2.insert(4)
-print(l2)
-result = LinkedList.zip_lists(l1, l2)
-print(result)
+   
+    
+    
