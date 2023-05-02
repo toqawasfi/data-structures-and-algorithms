@@ -6,35 +6,25 @@ class LinkedList :
 
  
  def __str__(self):
-
-        output = ""
-        
-        if self.head is None:
-            output = "Empty LinkeList"
-        else:
-            current = self.head
-            while(current):
-                output += f'{{{current.value} }}-> '
-                current = current.next
-            
-            output += " Null"
-        return output
+    output = ""
+    current = self.head
+    while current:
+        output += f"{current.value} -> "
+        current = current.next
+    output += "Null"
+    return output
+ 
  
  def __repr__(self):
+    if self.head is None:
+        return "Empty LinkedList"
+    current = self.head
+    nodes = []
+    while current:
+        nodes.append(str(current.value))
+        current = current.next
+    return " -> ".join(nodes)
 
-        output = ""
-        
-        if self.head is None:
-            output = "Empty LinkeList"
-        else:
-            current = self.head
-            while(current):
-                output += f'{{current.value}} -> '
-                current = current.next
-            
-            output += " NULL"
-        return output
-    
  
       
  def insert(self,value):
