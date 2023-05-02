@@ -1,4 +1,7 @@
-from  linked_list_zip. nodez import Node
+class Node:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
 
 class LinkedList:
     def __init__(self):
@@ -6,15 +9,22 @@ class LinkedList:
 
     def __str__(self):
         output = ""
-        if self.head is None:
-            output = "Empty LinkedList"
-        else:
-            current = self.head
-            while current:
-                output += f'{{{current.value}}} -> '
-                current = current.next
-            output += "NULL"
+        current = self.head
+        while current:
+            output += f"{current.value} -> "
+            current = current.next
+        output += "Null"
         return output
+
+    def __repr__(self):
+     if self.head is None:
+        return "Empty LinkedList"
+     current = self.head
+     nodes = []
+     while current:
+        nodes.append(str(current.value))
+        current = current.next
+     return " -> ".join(nodes)
 
     def append(self, value):
         new_node = Node(value)
@@ -26,24 +36,43 @@ class LinkedList:
                 current = current.next
             current.next = new_node
 
-def zipLists(head1, head2):
-    if head1 is None:
-        return head2
-    if head2 is None:
-        return head1
-    dummy = Node()
-    curr = dummy
-    while head1 is not None and head2 is not None:
-        curr.next = head1
-        head1 = head1.next
-        curr = curr.next
-        curr.next = head2
-        head2 = head2.next
-        curr = curr.next
-    if head1 is not None:
-        curr.next = head1
-    elif head2 is not None:
-        curr.next = head2
-    return dummy.next
+    def insert(self, value):
+        node = Node(value)
+        current = self.head
+        self.head = node
+        node.next = current
 
+    @staticmethod
+    def zip_lists(l1, l2):
+        if not l1.head:
+            return l2
+        if not l2.head:
+            return l1
+        result = LinkedList()
+        current = result.head = Node()
+        while l1.head and l2.head:
+            current.next = l1.head
+            l1.head = l1.head.next
+            current = current.next
+            current.next = l2.head
+            l2.head = l2.head.next
+            current = current.next
+        if l1.head:
+            current.next = l1.head
+        if l2.head:
+            current.next = l2.head
+        result.head = result.head.next
+        return result
 
+l1 = LinkedList()
+l1.insert(3)
+l1.insert(2)
+l1.insert(1)
+print(l1)
+l2 = LinkedList()
+l2.insert(6)
+l2.insert(5)
+l2.insert(4)
+print(l2)
+result = LinkedList.zip_lists(l1, l2)
+print(result)
