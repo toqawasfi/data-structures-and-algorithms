@@ -1,4 +1,8 @@
-from linkedlist.node1 import Node
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
 
 class LinkedList :
  def __init__(self):
@@ -37,9 +41,9 @@ class LinkedList :
        current =self.head
        while current  is not None:
         if value == current.value :
-           print(True)
+           return True
            break
         current=current.next
         if current == None:
-         print(False)
+         return False
         
