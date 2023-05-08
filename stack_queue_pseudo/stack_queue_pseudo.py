@@ -115,10 +115,7 @@ class pseudo_queue():
       self.size -= 1
       return self.my_stack1.pop()
 
-   def __str__(self):
-      """
-      Returns a string representation of the queue.
-      """
+
    def __str__(self):
         output = ""
         current = self.my_stack1.top
@@ -142,14 +139,3 @@ class pseudo_queue():
       while current:
          nodes.append(str(current.value))
          current = current.next
-
-# test the implementation
-# my_queue = pseudo_queue()
-# my_queue.enqueue(1)
-# my_queue.enqueue(2)
-# my_queue.enqueue(3)
-# my_queue.enqueue(3)
-# print(my_queue) # should print "1 -> 2 -> 3 -> "
-# my_queue.dequeue() # should print "1"
-# # print(my_queue.dequeue()) # should print "2"
-# print(my_queue) # should print "3 -> "

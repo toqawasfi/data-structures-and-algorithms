@@ -16,3 +16,4 @@ The space complexity of the pseudo_queue class is O(n), where n is the number of
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
 To run the code you have to pass an array and vlue to be inserted .
+[PR](https://github.com/toqawasfi/data-structures-and-algorithms/pull/13)
