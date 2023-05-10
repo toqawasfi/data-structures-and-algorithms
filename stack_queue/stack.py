@@ -77,6 +77,7 @@ class my_stack():
      if self.top is not None:
             temp = self.top.value
             self.top = self.top.next
+            
             self.size -= 1
             return temp
      else:

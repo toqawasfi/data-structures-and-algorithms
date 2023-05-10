@@ -139,3 +139,8 @@ class pseudo_queue():
       while current:
          nodes.append(str(current.value))
          current = current.next
+stack1= pseudo_queue()
+print(stack1.enqueue(5))
+print(stack1.enqueue(6))
+print(stack1.enqueue(9))
+print(stack1)
