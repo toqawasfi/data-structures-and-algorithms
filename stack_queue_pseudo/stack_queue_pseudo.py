@@ -143,4 +143,9 @@ stack1= pseudo_queue()
 print(stack1.enqueue(5))
 print(stack1.enqueue(6))
 print(stack1.enqueue(9))
+print(stack1.dequeue())
+print(stack1.enqueue(10))
+print(stack1.dequeue())
+
+
 print(stack1)

@@ -51,13 +51,13 @@ class  AnimalShelter():
       
       '''
          if pref=="Cat":
-            #  if len(self.cat_queue)==0:
-            #     return "I Have no cats"
-            
-             while len(self.cat_queue)!=0:
+            if len(self.cat_queue)==0 and not self.container:
+                return "I Have no cats"
+        
+            while len(self.cat_queue)!=0:
                 self.container.append(self.cat_queue.pop())
-           
-             return self.container.pop()
+        
+            return self.container.pop()
     
          elif pref=="Dog":
             #  if len(self.dog_queue)==0:
