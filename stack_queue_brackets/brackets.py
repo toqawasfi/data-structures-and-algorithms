@@ -1,4 +1,10 @@
 def validate_brackets(string):
+    '''
+    A function to check if each opeining brackets has its corresponding closing brackets with certain arrangment
+    args: str
+    retur: bool
+
+    '''
     stack = []
     opening_bracket_types = ['(', '[', '{']
     closing_bracket_types = [')', ']', '}']
