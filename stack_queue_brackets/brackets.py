@@ -8,11 +8,13 @@ def validate_brackets(string):
     stack = []
     opening_bracket_types = ['(', '[', '{']
     closing_bracket_types = [')', ']', '}']
+    valid="(){}[]"
 
     # Define a helper function to check if two brackets are a valid pair
     def is_valid_pair(opening_bracket, closing_bracket):
-        pairs = {')': '(', ']': '[', '}': '{'}
-        return pairs.get(closing_bracket) == opening_bracket
+        return opening_bracket+closing_bracket in valid
+        # pairs = {')': '(', ']': '[', '}': '{'}
+        # return pairs.get(closing_bracket) == opening_bracket
 
     for char in string:
         if char in opening_bracket_types:
@@ -25,3 +27,5 @@ def validate_brackets(string):
                 return False
 
     return len(stack) == 0
+str="{[}]"
+print(validate_brackets(str))
