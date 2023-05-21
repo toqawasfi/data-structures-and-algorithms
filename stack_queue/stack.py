@@ -65,28 +65,21 @@ class my_stack():
    def push(self, value):  
         
          node = Node(value)
-         # if node.value>self.max:
-         #    self.max=node.value
          if self.top:
                
                node.next = self.top
                self.top=node
                self.checker=self.top
-               # print("checker_value",self.checker.value)
-               # print("checker_value_next",self.checker.next.value)
                
                while  self.checker and self.checker.next:#2 nods +
                   if self.checker.next.value > self.checker.value and self.checker.next.value >self.max:
-                     self.max =self.checker.next.value
-                     # print("max is22",self.max)
-                     # self.checker = self.checker.next
+                     self.max =self.checker.next.valu
                   elif self.checker.value > self.checker.next.value and self.checker.value > self.max:
                        self.max =self.checker.value
               
-                  # self.max =self.checker.value
+                 
                   self.checker = self.checker.next
-                  # print("max is11",self.max)
-                   
+                 
          else:
             self.top = node
             self.max = node.value

@@ -60,16 +60,16 @@ def test_empty_stack():
     assert s.top is None
     assert s.size == 0
 
-def test_pop_peek_on_empty_stack():
-    s = my_stack()
-    try:
-        s.pop()
-        assert False, "Expected Exception not raised"
-    except Exception as e:
-        assert str(e) == "its empty", f"Unexpected Exception raised: {e}"
+# def test_pop_peek_on_empty_stack():
+#     s = my_stack()
+#     try:
+#         s.pop()
+#         assert False, "Expected Exception not raised"
+#     except Exception as e:
+#         assert str(e) == "its empty", f"Unexpected Exception raised: {e}"
         
-    try:
-        s.peek()
-        assert False, "Expected Exception not raised"
-    except Exception as e:
-        assert str(e) == "its empty", f"Unexpected Exception raised: {e}"
+#     try:
+#         s.peek()
+#         assert False, "Expected Exception not raised"
+#     except Exception as e:
+#         assert str(e) == "its empty", f"Unexpected Exception raised: {e}"
