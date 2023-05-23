@@ -55,3 +55,20 @@ def test_post_order():
     actual= my_arr
     expected=[3, 15, 5]
     assert actual == expected
+
+def test_max_right():
+    tree = Binary_Search_Tree(5) 
+    tree.Add(3)
+    tree.Add(15)
+  
+    actual= tree.tree_max()
+    expected=15
+    assert actual == expected
+def test_max_root():
+    tree = Binary_Search_Tree(30) 
+    tree.Add(3)
+    tree.Add(15)
+  
+    actual= tree.tree_max()
+    expected=30
+    assert actual == expected
