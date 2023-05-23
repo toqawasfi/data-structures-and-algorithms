@@ -15,6 +15,7 @@ class Binary_Tree():
         self.value=value
         self.left=None
         self.right=None
+        self.max=-1000
     
     def in_order(self,my_arr):
         '''
@@ -91,9 +92,11 @@ class Binary_Search_Tree(Binary_Tree):
         returns:None
         
         '''
-        if self.value == None or value== None:
-            return "My stack is empty"
         
+        if self.value>self.max:  #How iam checking my max
+            self.max=self.value
+        elif value>self.max:
+            self.max=value 
 
         if value<self.value :
             if self.left is None:
@@ -104,6 +107,8 @@ class Binary_Search_Tree(Binary_Tree):
         else:
             if self.right is None:
                 self.right = Binary_Search_Tree(value)
+                self.max=self.right.value
+               
             else:
                 self.right.Add(value)
 
@@ -123,6 +128,14 @@ class Binary_Search_Tree(Binary_Tree):
         elif value > self.value and self.right is not None:
             return self.right.Contains(value)
         return False
+    
+    def tree_max(self):
+        '''
+        A method finds max value in a tree.
+        args:None
+        return:value(int)
+        '''
+        return self.max
 
        
             
@@ -135,12 +148,13 @@ tree = Binary_Search_Tree(5)
 tree.Add(20)
 tree.Add(5)
 tree.Add(3)
-tree.Add(15)
+tree.Add(100)
 tree.Add(70)
 tree.Add(90)
 tree.Add(40)
 tree.post_order(my_arr)
 print(my_arr)
-print(tree.Contains(5))  
+# print(tree.Contains(5))  
 
-print(tree.print_nodes())   
+# print(tree.print_nodes()) 
+print("my_max",tree.tree_max())    
