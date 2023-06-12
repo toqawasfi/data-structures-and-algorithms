@@ -1,4 +1,10 @@
 def insertsort(arr,value):
+    '''
+    A finction received orderd array and attach element in the correct index
+    args:list,int
+    return:list
+    
+    '''
     arr.append(value)
     length=len(arr)
     for i in range(1,length):
