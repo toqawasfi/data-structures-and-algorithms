@@ -62,6 +62,29 @@ class Binary_Tree():
             self.right.post_order(my_arr)
         # print(self.value)
         my_arr.append(self.value)
+    
+    
+    def breadth_traversal(self):
+        result = []
+        my_queue = []
+        my_queue.append(self)
+
+        while my_queue:
+            node = my_queue.pop(0)
+            result.append(node.value)
+
+            if node.left:
+                my_queue.append(node.left)
+            if node.right:
+                my_queue.append(node.right)
+        
+        print(result)
+        return result
+
+            
+            
+        
+
 
         
 class Binary_Search_Tree(Binary_Tree):
@@ -144,17 +167,17 @@ class Binary_Search_Tree(Binary_Tree):
 
 
 my_arr = []
-tree = Binary_Search_Tree(5)
-tree.Add(20)
+tree = Binary_Search_Tree(20)
 tree.Add(5)
 tree.Add(3)
 tree.Add(100)
 tree.Add(70)
 tree.Add(90)
 tree.Add(40)
-tree.post_order(my_arr)
-print(my_arr)
+tree.breadth_first_traversal()
+# tree.in_order(my_arr)
+# print(my_arr)
 # print(tree.Contains(5))  
 
-# print(tree.print_nodes()) 
-print("my_max",tree.tree_max())    
+print(tree.print_nodes()) 
+# print("my_max",tree.tree_max())    

@@ -46,4 +46,5 @@ class LinkedList :
         current=current.next
         if current == None:
          return False
-        
+l1=LinkedList
+l1.instert()
