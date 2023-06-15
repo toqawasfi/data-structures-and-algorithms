@@ -10,6 +10,8 @@ def merge_sort(arr):
         merge_sort(right)
 
         merge(left, right, arr)
+    return arr
+
 
 def merge(left, right, arr):
     i = j = k = 0
