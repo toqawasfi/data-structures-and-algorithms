@@ -31,13 +31,3 @@ class Movies():
         
 
 
-movies_set = [
-    {"title": "The Avengers", "year": 2012, "genres": ["Action", "Adventure", "Sci-Fi"]},
-    {"title": "Anchorman: The Legend of Ron Burgundy", "year": 2004, "genres": ["Comedy"]},
-    {"title": "Avatar", "year": 2009, "genres": ["Action", "Adventure", "Fantasy", "Sci-Fi"]},
-    {"title": "Iron Man", "year": 2008, "genres": ["Action", "Adventure", "Sci-Fi"]},
-    {"title": "A Clockwork Orange", "year": 1971, "genres": ["Crime", "Drama", "Sci-Fi"]}
-]
-my_sort=Movies()
-# print(my_sort.movies_sorted_by_year(movies_set))
-print(my_sort.movies_sorted_by_title(movies_set))
