@@ -1,18 +1,24 @@
-def repeated_word(string):
-    word_list = string.split()  # Split the string into a list of words
-    word_count = {}  # Dictionary to store word counts
-    
-    for word in word_list:
-        if word in word_count:
-            return word  # Return the first repeated word
-        else:
-            word_count[word] = 1
-    
-    return None  # Return None if no repeated word is found
-sentence = "The quick brown fox jumps over the lazy dog"
-result = repeated_word(sentence)
-print(result)  # Output: None
+def repeated_word(s):
+    # Step 1: Split the input string into words
+    words = s.split()
 
-sentence = "The quick brown fox jumps over the quick dog"
-result = repeated_word(sentence)
-print(result)  # Output: quick
+    # Step 2: Create a hashmap to store word frequencies
+    word_freq = {}
+
+    # Step 3: Traverse through each word and update the hashmap
+    for word in words:
+        # Convert the word to lowercase to handle case-insensitivity
+        word = word.lower()
+        
+        # Increment the frequency count in the hashmap
+        word_freq[word] = word_freq.get(word, 0) + 1
+        
+        # Step 4: Check if the current word is repeated
+        if word_freq[word] > 1:
+            return word
+
+    # If no repeated word found, return None
+    return None
+input_string = "I love to code in Python. Python is awesome and Python is fun."
+result = repeated_word(input_string)
+print(result)  # Output: "python" (the first repeated word in the string)
