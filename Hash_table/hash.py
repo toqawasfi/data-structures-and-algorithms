@@ -1,72 +1,54 @@
-from linked_list import LinkedList
-
-class HashTable():
-    def __init__(self,size=3):
+class Hashtable:
+    def __init__(self, size=100):
+        """
+        Initializes a Hashtable
+        """
         self.size = size
-        self.map = [None]*size
+        self.table = [[] for _ in range(size)]
 
-    def custom_hash(self, key):
-        sum_of_asccii = 0
-        for ch in key:
-            asccii_of_ch = ord(ch)
-            sum_of_asccii += asccii_of_ch
-        temp = sum_of_asccii*599
-        indx = temp%self.size
-        return indx
-    
+    def hash(self, key):
+        """
+        Computes the hash value for the given key.
+        """
+        return hash(key) % self.size
+
     def set(self, key, value):
-        hashed_key = self.custom_hash(key)
-        if not self.map[hashed_key]: # if the Bucket is empty
-            self.map[hashed_key] = [key,value]
-        else: # collision happeded
-            if isinstance(self.map[hashed_key], LinkedList):
-                self.map[hashed_key].add([key,value])
-            else: # if the bucket contains one pair only
-                chain = LinkedList()
-                exsiting_pair = self.map[hashed_key]
-                new_pair = [key, value]
-                self.map[hashed_key] = chain
-                chain.add(exsiting_pair)
-                chain.add(new_pair)
+        """
+        Sets the key-value pair in the hashtable, handling collisions as needed.
+        """
+        hash_value = self.hash(key)
+        for i, (existing_key, existing_value) in enumerate(self.table[hash_value]):
+            if existing_key == key:
+                self.table[hash_value][i] = (key, value)
+                return
+        self.table[hash_value].append((key, value))
 
     def get(self, key):
-        hashed_key = self.custom_hash(key)
-        bucket = self.map[hashed_key]
+        """
+        Retrieves the value associated with the given key from the hashtable.
+        """
+        hash_value = self.hash(key)
+        for existing_key, value in self.table[hash_value]:
+            if existing_key == key:
+                return value
+        return None
 
-        if not bucket:
-            return None
-        else:
-            current = bucket.head
-            while current:
-                if current.value[0] == key:
-                    return current.value[1]
-                current = current.next_node
     def has(self, key):
-        hashed_key = self.custom_hash(key)
-        bucket = self.map[hashed_key]
+        """
+        Checks if the given key exists in the hashtable.
+        """
+        hash_value = self.hash(key)
+        for existing_key, _ in self.table[hash_value]:
+            if existing_key == key:
+                return True
+        return False
 
-        if not bucket:
-            return None
-        else:
-            current = bucket.head
-            while current:
-                if current.value[0] == key:
-                    return True
-                current = current.next_node
     def keys(self):
+        """
+        Retrieves all the keys from the hashtable.
+        """
         keys = []
-        for bucket in self.map:
-                    current = bucket.head
-                    while current:
-                        keys.append(current.value[0])
-                        current = current.next_node
+        for bucket in self.table:
+            for key, _ in bucket:
+                keys.append(key)
         return keys
-    
-    def hash(self, key):
-        return self.custom_hash(key)
-
-
-
-
-
-        

@@ -1,52 +1,50 @@
-from vertex import Node
-
-class Edge:
-    def __init__(self,vertex, weight=0):
-        self.vertex = vertex
-        self.weight = weight
-
 class Graph:
     def __init__(self):
-        self.adj_list = {}
-        self.size=0
-
-    def add_node(self, value):
-        new_vertex = Node(value)
-        self.adj_list[new_vertex] = []
-        self.size+=1
-        return new_vertex
+        """
+        Initialize an empty graph with no vertices
+        """
+        self.vertices = {}
     
-    def add_edge(self,node1, node2, weight=0):
-
-        if not node1 in self.adj_list.keys():
-            return("this node does not exist")
-        
-        if not node2 in self.adj_list.keys():
-            return("this node does not exist")
-        
-        edge1 = Edge(node2, weight)
-        self.adj_list[node1].append(edge1)
-
-        edge2 = Edge(node1, weight)
-        self.adj_list[node2].append(edge2)
-
-    def __str__(self):
-        output = ''
-        for vertex in self.adj_list.keys():
-            output += f'{vertex} -> '
-            for edge in self.adj_list[vertex]:
-                output += f'{edge.vertex} -----> '
-            output += '\n'
-        return output
+    def add_vertex(self, value):
+        """
+        Add a vertex to the graph
+        value -- the value of the vertex
+        """
+        if value not in self.vertices:
+            self.vertices[value] = []
+    
+    def add_edge(self, vertex1, vertex2, weight=None):
+        """
+        Add a new edge between two vertices in the graph
+        vertex1 -- the first vertex to be connected by the edge
+        vertex2 -- the second vertex to be connected by the edge
+        weight -- (optional) the weight of the edge
+        """
+        if vertex1 in self.vertices and vertex2 in self.vertices:
+            if vertex1 == vertex2:
+                self.vertices[vertex1].append((vertex2, weight))
+            else:
+                self.vertices[vertex1].append((vertex2, weight))
+                self.vertices[vertex2].append((vertex1, weight))
+    
     def get_vertices(self):
-        list1=list(self.adj_list.keys()) 
-        for i in list1 :
-            print (i)
-
+        """
+        Get all of the vertices in the graph
+        """
+        return list(self.vertices.keys())
     
     def get_neighbors(self, vertex):
-        neighbors = self.adj_list.get(vertex, [])
-        
-        return neighbors
-    def get_size(self):
-       print(self.size)
+        """
+        Get the neighbors of a given vertex
+        vertex -- the vertex to get the neighbors of
+        """
+        if vertex in self.vertices:
+            return self.vertices[vertex]
+        else:
+            return []
+    
+    def size(self):
+        """
+        Get the total number of vertices in the graph
+        """
+        return len(self.vertices)

@@ -6,6 +6,7 @@ class TreeNode():
         self.root=root
         self.left=None
         self.right=None
+        
 class Binary_Tree():
     '''
     class to travers my tree using different wany (preorder,inorder and post order)
