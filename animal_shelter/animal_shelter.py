@@ -32,7 +32,7 @@ class  AnimalShelter():
       return:None
       
       '''
-      if animal.species == "Cat":
+      if animal.species == "Cat":jjjjjjjj
             self.cat_queue.append(animal.name)
            
             return self.cat_queue
